@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Simulasi kalkulator</title>
+<style>
+	body {
+	font-family: 'Arial', sans-serif;
+	background: black;   /* untuk warna background kalkulator */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+}
+.clas {
+	padding: 10px;
+	width: 700px;
+	margin: auto;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 300px;
+}
+table {
+	width: 100%;
+}
+td {
+	width: 25%;
+}
+h3 {
+	font-size: 20px;
+	margin: 0;
+	padding: 15px;
+	text-align: center;
+	background-color: #3498db;
+	color: #fff;
+}
+button {
+	margin-top: 10px;
+	width: 100%;
+	height: 70px;
+	font-size: 20px;
+	background-color: grey; /* warna untuk button angka  */
+	border: none;
+	color: black;
+}
+button:active {
+	background-color: yellow; /* untuk warna animasi button ketika di klik  */
+}
+
+#inputlabel {
+	height: 100px;
+	font-size: 50px;
+	vertical-align: bottom;
+	text-align: right;
+	background-color: grey;
+	border-bottom: 2px solid #bdc3c7;
+	margin-bottom: 300px;
+	color: white;
+}
+
+.btn {
+	color: white;
+	background-color: orange;
+}
+
+.btn:active{
+	background-color: #666666;
+}
+
+.btn1 {
+	color: white;
+	background-color: black;
+}
+
+.btn1:active {
+	background-color: yellow;
+}
+
+</style>
+</head>
+<body>
+	<div class="clas">
+		<table>
+		<h3>contoh<h3>
+		<tr>
+			<td colspan="4" id="inputlabel"></td>
+		</tr>
+		<tr>
+				<td colspan="2"><button class="btn" onclick="tombol(this)">C</button></td>
+				<td><button class="btn"  onclick="tombol(this)">D</button></td>
+				<td><button class="btn1"  onclick="tombol(this)">/</button></td>
+		</tr>
+		<tr>
+				<td><button onclick="tombol(this)">7</button></td>
+				<td><button onclick="tombol(this)">8</button></td>
+				<td><button onclick="tombol(this)">9</button></td>
+				<td><button class="btn1"  onclick="tombol(this)">*</button></td>
+		</tr>
+		<tr>
+				<td><button onclick="tombol(this)">4</button></td>
+				<td><button onclick="tombol(this)">5</button></td>
+				<td><button onclick="tombol(this)">6</button></td>
+				<td><button class="btn1"  onclick="tombol(this)">+</button></td>
+		</tr>
+		<tr>
+				<td><button onclick="tombol(this)">1</button></td>
+				<td><button onclick="tombol(this)">2</button></td>
+				<td><button onclick="tombol(this)">3</button></td>
+				<td><button class="btn1"  onclick="tombol(this)">-</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button onclick="tombol(this)">0</td>
+			<td><button onclick="tombol(this)">.</button></td>
+			<td><button class="btn1"  onclick="tombol(this)">=</button></td>
+		</tr>
+
+		</table>
+	</div>
+	<script type="text/javascript">
+		var inputlabel = document.getElementById('inputlabel');
+		function tombol(obj) {
+			var kondisi = obj.innerHTML;
+
+			if (kondisi == "=") {
+				inputlabel.innerHTML = eval(inputlabel.innerHTML);
+			}
+			else if (kondisi=="C") {
+				inputlabel.innerHTML = "";
+			}
+			else if (kondisi=="D") {
+				inputlabel.innerHTML = inputlabel.innerHTML.slice(0,-1);
+			}
+			else{
+				if (inputlabel.innerHTML=="") {
+					inputlabel.innerHTML = kondisi;
+				}else{
+					inputlabel.innerHTML += kondisi;
+				}
+
+			}
+		}
+
+	</script>
+
+</body>
+</html>
